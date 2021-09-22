@@ -5,6 +5,6 @@ namespace Ensek.Application.Commands.InsertMeterReadings
 {
     public class InsertMeterReadingsCommand : IRequest<InsertMeterReadingsResponse>
     {
-        public DataTable DataTable { get; set; } 
+        public DataTable DataTable { get; set; }
     }
 }

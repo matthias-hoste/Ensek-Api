@@ -1,17 +1,10 @@
-﻿using Ensek.Domain.Models;
+﻿using Ensek.Application.Commands.InsertMeterReadings;
 using ExcelDataReader;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Linq;
-using MediatR;
-using Ensek.Application.Commands.InsertMeterReadings;
 
 namespace Ensek.Api.Controllers
 {
@@ -27,7 +20,7 @@ namespace Ensek.Api.Controllers
         }
 
         [HttpPost("meter-readings-uploads")]
-        public async Task<InsertMeterReadingsResponse> UploadMeterReadings([FromForm]IFormFile csvFile, CancellationToken token)
+        public async Task<InsertMeterReadingsResponse> UploadMeterReadings([FromForm] IFormFile csvFile, CancellationToken token)
         {
             using (var stream = csvFile.OpenReadStream())
             using (var excelReader = ExcelReaderFactory.CreateReader(stream))

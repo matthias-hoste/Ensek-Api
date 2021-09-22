@@ -5,9 +5,7 @@ using Ensek.Persistence;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -33,7 +31,7 @@ namespace Ensek.Application.Commands.InsertMeterReadings
                 if (!int.TryParse(Convert.ToString(dataRow[0]), out var accountId))
                     continue;
 
-                var account = await _dbContext.Accounts.Include(x => x.MeterReadings).FirstOrDefaultAsync(x => x.Id == accountId);
+                var account = await _dbContext.Accounts.Include(x => x.MeterReadings).FirstOrDefaultAsync(x => x.Id == accountId, cancellationToken);
 
                 if (account != null)
                 {
@@ -41,13 +39,13 @@ namespace Ensek.Application.Commands.InsertMeterReadings
 
                     if (meterReading != null && _meterReaderValidator.IsValid(meterReading))
                     {
-                        if(account.AddMeterReading(meterReading))
+                        if (account.AddMeterReading(meterReading))
                             successfullReadings++;
                     }
                 }
             }
 
-            await _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync(cancellationToken);
 
             return new InsertMeterReadingsResponse
             {

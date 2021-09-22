@@ -12,8 +12,8 @@ namespace Ensek.Persistence.Extensions
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
-            using(var fileStream = File.OpenRead("..\\Ensek.Persistence\\SeedData\\Accounts.xlsx"))
-            using(var excelReader = ExcelReaderFactory.CreateReader(fileStream))
+            using (var fileStream = File.OpenRead("..\\Ensek.Persistence\\SeedData\\Accounts.xlsx"))
+            using (var excelReader = ExcelReaderFactory.CreateReader(fileStream))
             {
                 var dataSet = excelReader.AsDataSet(new ExcelDataSetConfiguration
                 {
@@ -26,7 +26,7 @@ namespace Ensek.Persistence.Extensions
 
                 var accounts = new List<Account>();
 
-                foreach(DataRow row in dataTable.Rows)
+                foreach (DataRow row in dataTable.Rows)
                 {
                     var account = new Account
                     {

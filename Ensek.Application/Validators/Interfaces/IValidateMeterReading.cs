@@ -1,5 +1,4 @@
 ﻿using Ensek.Domain.Models;
-using System.Data;
 
 namespace Ensek.Application.Validators.Interfaces
 {

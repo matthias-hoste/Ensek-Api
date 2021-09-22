@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Ensek.Application.Commands.InsertMeterReadings
+﻿namespace Ensek.Application.Commands.InsertMeterReadings
 {
     public class InsertMeterReadingsResponse
     {

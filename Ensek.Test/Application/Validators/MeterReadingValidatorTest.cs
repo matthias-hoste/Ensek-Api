@@ -1,10 +1,8 @@
-﻿using Ensek.Application.Validators.Interfaces;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Ensek.Application.Validators;
+using Ensek.Application.Validators.Interfaces;
 using Ensek.Domain.Models;
-using System.Collections.Generic;
-using System.Text;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using Ensek.Application.Validators;
 
 namespace Ensek.Tests.Application.Validators
 {

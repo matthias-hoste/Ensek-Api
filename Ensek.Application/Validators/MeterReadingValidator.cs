@@ -1,7 +1,5 @@
 ﻿using Ensek.Application.Validators.Interfaces;
 using Ensek.Domain.Models;
-using System;
-using System.Data;
 using System.Text.RegularExpressions;
 
 namespace Ensek.Application.Validators
